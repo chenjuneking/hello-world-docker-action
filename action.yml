@@ -1,4 +1,4 @@
-name: 'Setup MySQL'
+name: 'Create a MySQL Docker Container'
 description: 'Setup a MySQL database'
 author: 'chenjunqing'
 branding:
