@@ -1,0 +1,35 @@
+name: test
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ["14.x"]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up MySQL 8
+        uses: ./ # Uses an action in the root directory
+        id: mysql
+        with:
+          mysqlVersion: 8
+          mysqlDatabase: test
+          mysqlRootPassword: ${{ secrets.DATABASE_PASSWORD }}
+      - name: Post MySQL set up
+        run: echo "${{ steps.mysql.outputs.results }}"
+      - name: Run test cases
+        run: |
+          npm install
+          npm run lint
+          DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }} npm test
+        env:
+          CI: true
