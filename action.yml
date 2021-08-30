@@ -1,5 +1,5 @@
-name: 'Create a MySQL Docker Container'
-description: 'Setup a MySQL database'
+name: 'Create MySQL Container'
+description: 'Create a MySQL Docker Container'
 author: 'chenjunqing'
 branding:
   icon: 'database'
