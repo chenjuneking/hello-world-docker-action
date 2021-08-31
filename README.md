@@ -51,7 +51,6 @@ The result string.
 ```yml
 name: Setup MySQL 8
   uses: chenjuneking/mysql-docker-action@v1
-  id: mysql
   with:
     mysqlVersion: 8
     mysqlDatabase: test
