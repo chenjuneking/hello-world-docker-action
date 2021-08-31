@@ -17,6 +17,10 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
+      - name: Install dependencies & build
+        run: |
+          npm install
+          npm run build
       - name: Set up MySQL 8
         uses: chenjuneking/mysql-docker-action@master # Uses an action in the root directory
         id: mysql
@@ -28,9 +32,6 @@ jobs:
       - name: Post MySQL set up
         run: echo "${{ steps.mysql.outputs.results }}"
       - name: Run test cases
-        run: |
-          npm install
-          npm run lint
-          DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }} npm test
+        run: DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }} npm test
         env:
           CI: true
