@@ -42,7 +42,7 @@ inputs:
     required: false
     default: ''
   volumes:
-    description: 'Volumns definition, eg: "data:/etc/mysql/data&my.cnf:/etc/mysql/my.cnf"'
+    description: 'Volumes definition, eg: "data:/etc/mysql/data&my.cnf:/etc/mysql/my.cnf"'
     required: false
     default: ''
 runs:

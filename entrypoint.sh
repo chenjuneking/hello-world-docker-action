@@ -4,13 +4,14 @@ type mysql >/dev/null 2>&1 && sudo service mysql stop || echo "mysql not present
 
 commands="docker run"
 
-echo "volumns: $INPUT_VOLUMNS"
-
-IFS='&' read -r -a volumns <<< "$INPUT_VOLUMNS"
-for volumn in "${volumns[@]}"
-do
-  echo "$volumn"
-done
+echo "volumes: $INPUT_VOLUMES"
+if [ -n "$INPUT_VOLUMES" ]; then
+  IFS='&' read -r -a volumes <<< "$INPUT_VOLUMES"
+  for volume in "${volumes[@]}"
+  do
+    echo "$volume"
+  done
+fi
 
 if [ -n "$INPUT_MYSQLROOTPASSWORD" ]; then
   echo "Root password not empty, use root superuser"
