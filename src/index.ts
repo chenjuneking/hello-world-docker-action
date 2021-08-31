@@ -67,7 +67,7 @@ function generateEntrypoint(commands: string): void {
 }
 
 function getEntrypointPath() {
-  return path.join(os.homedir(), 'entrypoint.sh');
+  return path.join('/tmp', 'entrypoint.sh');
 }
 
 run();

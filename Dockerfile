@@ -1,5 +1,5 @@
 FROM docker:stable
 
-COPY dist/entrypoint.sh /entrypoint.sh
+COPY /tmp/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT [ "/entrypoint.sh" ]
