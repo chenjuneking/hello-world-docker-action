@@ -1,5 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
+import * as os from 'os';
 import * as core from '@actions/core';
 const hostPort = core.getInput('hostPort');
 const containerPort = core.getInput('containerPort');
@@ -57,6 +58,9 @@ function generateEntrypoint(commands) {
     content.push(`time=$(date)`);
     content.push(`MySQL set up on $time`);
     content.push(`::set-output name=results::$results`);
-    fs.writeFileSync(path.join(__dirname, 'entrypoint.sh'), content.join('\n'));
+    fs.writeFileSync(getEntrypointPath(), content.join('\n'));
+}
+function getEntrypointPath() {
+    return path.join(os.homedir(), 'entrypoint.sh');
 }
 run();
