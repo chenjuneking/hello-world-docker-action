@@ -24,9 +24,7 @@ jobs:
           mysqlVersion: 8
           mysqlDatabase: test
           mysqlRootPassword: ${{ secrets.DATABASE_PASSWORD }}
-          volumes: |
-            - tests/fixtures:/etc/mysql/fixtures
-            - tests/my.cnf:/etc/mysql/my.cnf
+          volumes: '["tests/fixtures:/etc/mysql/fixtures", tests/my.cnf:/etc/mysql/my.cnf]'
       - name: Post MySQL set up
         run: echo "${{ steps.mysql.outputs.results }}"
       - name: Run test cases
