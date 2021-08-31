@@ -5,9 +5,11 @@ type mysql >/dev/null 2>&1 && sudo service mysql stop || echo "mysql not present
 commands="docker run"
 
 echo "volumns: $INPUT_VOLUMNS"
-for volumn in "$INPUT_VOLUMNS"
+
+IFS='&' read -r -a volumns <<< "$INPUT_VOLUMNS"
+for volumn in "${volumns[@]}"
 do
-  echo "volumn - $volumn"
+  echo "$volumn"
 done
 
 if [ -n "$INPUT_MYSQLROOTPASSWORD" ]; then

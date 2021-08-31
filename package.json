@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "lint": "eslint . --ext .ts",
+    "build": "tsc --build tsconfig.json",
     "test": "jest"
   },
   "repository": {
@@ -23,6 +24,7 @@
   },
   "homepage": "https://github.com/chenjuneking/hello-world-docker-action#readme",
   "dependencies": {
+    "@actions/core": "^1.5.0",
     "mysql2": "^2.3.0"
   },
   "devDependencies": {
