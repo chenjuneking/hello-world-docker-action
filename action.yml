@@ -42,10 +42,9 @@ inputs:
     required: false
     default: ''
   volumes:
-    description: 'Volumes definition in json array, eg: ["data:/etc/mysql/data", "my.cnf:/etc/mysql/my.cnf"]'
+    description: 'Volumes definition in json array, eg: "data:/etc/mysql/data&my.cnf:/etc/mysql/my.cnf"'
     required: false
-    default: '[]'
+    default: ''
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  pre-entrypoint: 'dist/index.js'
