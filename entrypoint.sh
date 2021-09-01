@@ -42,6 +42,7 @@ fi
 commands="$commands -d -p $INPUT_HOSTPORT:$INPUT_CONTAINERPORT mysql:$INPUT_MYSQLVERSION --port=$INPUT_CONTAINERPORT"
 commands="$commands --character-set-server=$INPUT_CHARACTERSETSERVER --collation-server=$INPUT_COLLATIONSERVER"
 
+echo "execute command: $commands"
 sh -c "$commands"
 
 time=$(date)
