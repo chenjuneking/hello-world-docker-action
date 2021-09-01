@@ -41,10 +41,6 @@ inputs:
     description: 'MYSQL_PASSWORD - specified superuser password which user is power for created database'
     required: false
     default: ''
-  volumes:
-    description: 'Volumes definition in json array, eg: "data:/etc/mysql/data&my.cnf:/etc/mysql/my.cnf"'
-    required: false
-    default: ''
 runs:
   using: 'docker'
   image: 'Dockerfile'
