@@ -4,6 +4,10 @@ This action create a MySQL docker container.
 
 ### Inputs
 
+#### `containerName`
+
+Name of the container. Default `mysql`.
+
 #### `hostPort`
 
 The port of host. Default `3306`.
@@ -42,9 +46,9 @@ MYSQL_PASSWORD - specified superuser password which user is power for created da
 
 ### Outputs
 
-#### `results`
+#### `containerName`
 
-The result string.
+Name of the container.
 
 ## Example usage
 

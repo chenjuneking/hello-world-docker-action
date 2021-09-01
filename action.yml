@@ -5,6 +5,10 @@ branding:
   icon: 'database'
   color: 'blue'
 inputs:
+  containerName:
+    description: 'Name of the container'
+    required: false
+    default: 'mysql'
   hostPort:
     description: 'The port of host'
     required: false

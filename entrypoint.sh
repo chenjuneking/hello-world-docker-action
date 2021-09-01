@@ -2,7 +2,7 @@
 
 type mysql >/dev/null 2>&1 && sudo service mysql stop || echo "mysql not present."
 
-commands="docker run"
+commands="docker run --name $INPUT_CONTAINERNAME"
 
 # if [ -n "$INPUT_VOLUMES" ]; then
 #   oldIFS=$IFS
@@ -43,6 +43,4 @@ commands="$commands --character-set-server=$INPUT_CHARACTERSETSERVER --collation
 echo "execute command: $commands"
 sh -c "$commands"
 
-time=$(date)
-results="MySQL $INPUT_MYSQLVERSION set up on $time"
-echo "::set-output name=results::$results"
+echo "::set-output name=containerName::$INPUT_CONTAINERNAME"

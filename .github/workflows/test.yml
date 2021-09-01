@@ -26,7 +26,7 @@ jobs:
           mysqlRootPassword: ${{ secrets.DATABASE_PASSWORD }}
       - name: Post MySQL set up
         run: |
-          echo "${{ steps.mysql.outputs.results }}"
+          echo "Container: ${{ steps.mysql.outputs.containerName }} has been setup"
       - name: Run test cases
         run: |
           npm install
